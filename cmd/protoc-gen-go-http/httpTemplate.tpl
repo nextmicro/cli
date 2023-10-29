@@ -1,7 +1,9 @@
 {{$svrType := .ServiceType}}
 {{$svrName := .ServiceName}}
 
-{{- range .MethodSets}}
+{{- range .Methods}}
+const Operation{{$svrType}}{{.OriginalName}} = "{{.Path}}"
+{{ else if .MethodSets}}
 const Operation{{$svrType}}{{.OriginalName}} = "/{{$svrName}}/{{.OriginalName}}"
 {{- end}}
 
