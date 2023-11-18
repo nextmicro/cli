@@ -2,7 +2,7 @@
 {{$svrName := .ServiceName}}
 
 {{- range .MethodSets}}
-const Operation{{$svrType}}{{.OriginalName}} = "{{.Path}}"
+const Operation{{$svrType}}{{.OriginalName}} = "/{{$svrName}}/{{.OriginalName}}"
 {{- end}}
 
 type {{.ServiceType}}HTTPServer interface {
